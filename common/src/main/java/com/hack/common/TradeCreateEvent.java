@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-public class TradePojo {
+public class TradeCreateEvent {
 
     private long tradeId;
     private String cusip;
@@ -13,10 +13,10 @@ public class TradePojo {
     private String trader;
     private String salesPerson;
 
-    public TradePojo() {
+    public TradeCreateEvent() {
     }
 
-    public TradePojo(long tradeId, String cusip, String trader, String salesPerson) {
+    public TradeCreateEvent(long tradeId, String cusip, String trader, String salesPerson) {
         this.tradeId = tradeId;
         this.cusip = cusip;
         this.trader = trader;
@@ -53,5 +53,15 @@ public class TradePojo {
 
     public void setSalesPerson(String salesPerson) {
         this.salesPerson = salesPerson;
+    }
+
+    @Override
+    public String toString() {
+        return "TradeCreateEvent{" +
+                "tradeId=" + tradeId +
+                ", cusip='" + cusip + '\'' +
+                ", trader='" + trader + '\'' +
+                ", salesPerson='" + salesPerson + '\'' +
+                '}';
     }
 }

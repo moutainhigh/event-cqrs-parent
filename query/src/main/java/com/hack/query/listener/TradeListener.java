@@ -1,9 +1,7 @@
 package com.hack.query.listener;
 
-import com.hack.common.TradePojo;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.hack.common.TradeCreateEvent;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
@@ -12,18 +10,18 @@ import java.util.concurrent.ConcurrentHashMap;
 @RestController
 public class TradeListener {
 
-    private Map<Long, TradePojo> cache = new ConcurrentHashMap();
+    private Map<Long, TradeCreateEvent> cache = new ConcurrentHashMap();
 
     /**
      * mock kafka 的监听
      */
-    @RequestMapping("onEvent")
-    public void onEvent(TradePojo tradePojo) {
-        cache.put(tradePojo.getTradeId(), tradePojo);
+    @PostMapping("onEvent")
+    public void onEvent(@RequestBody TradeCreateEvent tradeCreateEvent) {
+        cache.put(tradeCreateEvent.getTradeId(), tradeCreateEvent);
     }
 
     @RequestMapping("find/{tradeId}")
-    public Mono<TradePojo> findById(@PathVariable long tradeId) {
+    public Mono<TradeCreateEvent> findById(@PathVariable long tradeId) {
         return Mono.just(cache.get(tradeId));
     }
 }

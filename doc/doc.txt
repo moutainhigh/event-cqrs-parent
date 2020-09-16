@@ -50,15 +50,15 @@ disrutpor: cas 无锁，消除了伪共享，ringbuffer的结构
 1.ringbuffer的图:
 
 
-
-
 所以我们在框架中抛弃掉了使用了线程池来作为异步执行，我们使用了Disruptor来做异步的处理：
 
 
+Rinfbufer的api 用ut展示
 
 
+最后演示一条trade的 创建流程
 
-
+todo: 更多的异常处理方式的封装
 
 #ringBuffer 如何读取数据？
 所有的消费者都会在记录一个sequence,来标记已经消费的序列号，然后不停的用cas去做更新操作

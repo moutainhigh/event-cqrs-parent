@@ -12,19 +12,18 @@ import java.util.concurrent.ConcurrentHashMap;
 @RestController
 public class TradeListener {
 
-    private Map<Long,TradePojo> cache=new ConcurrentHashMap();
+    private Map<Long, TradePojo> cache = new ConcurrentHashMap();
 
     /**
      * mock kafka 的监听
      */
     @RequestMapping("onEvent")
-    public void onEvent(TradePojo tradePojo){
-        cache.put(tradePojo.getTradeId(),tradePojo);
+    public void onEvent(TradePojo tradePojo) {
+        cache.put(tradePojo.getTradeId(), tradePojo);
     }
 
     @RequestMapping("find/{tradeId}")
-    public Mono<TradePojo> findById(@PathVariable long tradeId){
+    public Mono<TradePojo> findById(@PathVariable long tradeId) {
         return Mono.just(cache.get(tradeId));
-
     }
 }

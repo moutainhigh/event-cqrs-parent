@@ -9,6 +9,7 @@ import javax.persistence.Id;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class TradeEntity {
 
     @Id
@@ -18,37 +19,6 @@ public class TradeEntity {
     private String cusip;
 
     private String trader;
-    private String salesPerson;
+    private String salePerson;
 
-    public long getTradeId() {
-        return tradeId;
-    }
-
-    public void setTradeId(long tradeId) {
-        this.tradeId = tradeId;
-    }
-
-    public String getCusip() {
-        return cusip;
-    }
-
-    public void setCusip(String cusip) {
-        this.cusip = cusip;
-    }
-
-    public String getTrader() {
-        return trader;
-    }
-
-    public void setTrader(String trader) {
-        this.trader = trader;
-    }
-
-    public String getSalesPerson() {
-        return salesPerson;
-    }
-
-    public void setSalesPerson(String salesPerson) {
-        this.salesPerson = salesPerson;
-    }
 }

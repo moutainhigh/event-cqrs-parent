@@ -21,7 +21,7 @@ public class CreateCommandExecutor implements CommandExecutor<CreateTradeCommand
     }
 
     private void validate(CreateTradeCommand createTradeCommand) {
-
+        log.info("validate the command:{}",createTradeCommand);
     }
 
     @Override

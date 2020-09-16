@@ -3,7 +3,7 @@ package com.hack.query.config;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration //标记配置类
-//@EnableSwagger2WebFlux
+
 public class Swagger2Config {
 //    private final TypeResolver resolver;
 //

@@ -1,0 +1,6 @@
+server:
+  port: 1102
+hack.lmax:
+  enable: true
+  bufferSize: 1024
+  handlerSize: 10

@@ -24,7 +24,7 @@ public class HackAutoConfig {
 
     @Bean
     @ConditionalOnBean(RingBufferProperties.class)
-    public <T>RingBufferWrapper<DataFlowEvent> dataFlowEventRingBufferWrapper(RingBufferProperties ringBufferProperties){
+    public RingBufferWrapper<DataFlowEvent> dataFlowEventRingBufferWrapper(RingBufferProperties ringBufferProperties){
         Assert.isTrue(ringBufferProperties.getBufferSize()>0,"buffer size must great than 0");
         Assert.isTrue(ringBufferProperties.getHandlerSize()>0,"handler size must great than 0");
         Disruptor<DataFlowEvent> disruptor = DisruptorFactory.createDisruptor(ringBufferProperties.getBufferSize(), ringBufferProperties.getHandlerSize());

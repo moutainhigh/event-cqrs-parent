@@ -13,4 +13,4 @@ spring:
 hack.lmax:
   enable: true
   bufferSize: 2048
-  handelerSize: 10
+  handlerSize: 10

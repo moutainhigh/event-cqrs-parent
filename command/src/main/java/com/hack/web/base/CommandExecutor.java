@@ -1,4 +1,4 @@
-package com.cqrs.command.base;
+package com.hack.web.base;
 
 /**
  * 暂时用来做标识

@@ -1,4 +1,4 @@
-package com.cqrs.command.base;
+package com.hack.web.base;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

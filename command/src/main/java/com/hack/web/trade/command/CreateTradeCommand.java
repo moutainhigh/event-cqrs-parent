@@ -1,24 +1,13 @@
-package com.cqrs.command.trade.domain.dao;
+package com.hack.web.trade.command;
 
-import lombok.*;
+import com.hack.web.base.BaseCommand;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
-@NoArgsConstructor
-@AllArgsConstructor
-public class TradeEntity {
-
-    @Id
-    @GeneratedValue
+public class CreateTradeCommand implements BaseCommand {
     private long tradeId;
-
     private String cusip;
 
     private String trader;
-    private String salesPerson;
+    private String salePerson;
 
     public long getTradeId() {
         return tradeId;
@@ -44,11 +33,11 @@ public class TradeEntity {
         this.trader = trader;
     }
 
-    public String getSalesPerson() {
-        return salesPerson;
+    public String getSalePerson() {
+        return salePerson;
     }
 
-    public void setSalesPerson(String salesPerson) {
-        this.salesPerson = salesPerson;
+    public void setSalePerson(String salePerson) {
+        this.salePerson = salePerson;
     }
 }

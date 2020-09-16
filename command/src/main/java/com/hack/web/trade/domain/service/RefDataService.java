@@ -1,4 +1,4 @@
-package com.cqrs.command.trade.domain.service;
+package com.hack.web.trade.domain.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

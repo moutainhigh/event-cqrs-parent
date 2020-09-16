@@ -1,8 +1,8 @@
-package com.cqrs.command.trade.domain.service;
+package com.hack.web.trade.domain.service;
 
-import com.cqrs.command.trade.CreateTradeCommand;
-import com.cqrs.command.trade.domain.dao.TradeEntity;
-import com.cqrs.command.trade.domain.dao.TradeRepository;
+import com.hack.web.trade.command.CreateTradeCommand;
+import com.hack.web.trade.domain.dao.TradeEntity;
+import com.hack.web.trade.domain.dao.TradeRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

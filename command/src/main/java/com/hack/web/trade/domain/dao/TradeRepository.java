@@ -1,4 +1,4 @@
-package com.cqrs.command.trade.domain.dao;
+package com.hack.web.trade.domain.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

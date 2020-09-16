@@ -1,4 +1,4 @@
-package com.hack.web.trade.domain.event;
+package com.hack.web.trade.domain.handler;
 
 import com.hack.common.TradeCreateEvent;
 import com.hack.core.aspectj.LmaxAsync;
@@ -8,16 +8,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class EmailHandler {
+public class SmsHandler {
 
-
-    /**
-     * 异步的事件
-     * @param tradeCreateEvent
-     */
     @EventListener
     @LmaxAsync
     public void onEvent(TradeCreateEvent tradeCreateEvent){
-        log.info("email handler:{}",tradeCreateEvent);
+        log.info("sms handler:{}",tradeCreateEvent);
     }
+
 }

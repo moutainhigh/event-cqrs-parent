@@ -1,9 +1,10 @@
-package com.hack.web.trade.domain.event;
+package com.hack.web.trade.domain.handler;
 
 import com.hack.common.TradeCreateEvent;
 import com.hack.core.aspectj.LmaxAsync;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -23,6 +24,6 @@ public class JmsHandler {
         log.info("send to kafka:{}",tradeCreateEvent);
         RestTemplate restTemplate = new RestTemplate();
         // 发送到Q 端
-        restTemplate.postForEntity("http://localhost:1102/onEvent",tradeCreateEvent,Void.class);
+        ResponseEntity<Void> voidResponseEntity = restTemplate.postForEntity("http://localhost:1102/onEvent", tradeCreateEvent, Void.class);
     }
 }

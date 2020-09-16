@@ -10,3 +10,7 @@ spring:
       ddl-auto: create-drop
   datasource:
       url: jdbc:h2:mem:~/jpa;DB_CLOSE_ON_EXIT=FALSE
+hack.lmax:
+  enable: true
+  bufferSize: 2048
+  handelerSize: 10

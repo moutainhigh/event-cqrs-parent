@@ -1,11 +1,24 @@
-package com.cqrs.command;
+package com.cqrs.command.trade.domain.dao;
 
-public class TradeCommand {
+import lombok.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+public class TradeEntity {
+
+    @Id
+    @GeneratedValue
     private long tradeId;
+
     private String cusip;
 
     private String trader;
-    private String salePerson;
+    private String salesPerson;
 
     public long getTradeId() {
         return tradeId;
@@ -31,11 +44,11 @@ public class TradeCommand {
         this.trader = trader;
     }
 
-    public String getSalePerson() {
-        return salePerson;
+    public String getSalesPerson() {
+        return salesPerson;
     }
 
-    public void setSalePerson(String salePerson) {
-        this.salePerson = salePerson;
+    public void setSalesPerson(String salesPerson) {
+        this.salesPerson = salesPerson;
     }
 }

@@ -20,7 +20,7 @@ public class TradeListener {
         cache.put(tradeCreateEvent.getTradeId(), tradeCreateEvent);
     }
 
-    @RequestMapping("find/{tradeId}")
+    @GetMapping("find/{tradeId}")
     public Mono<TradeCreateEvent> findById(@PathVariable long tradeId) {
         return Mono.just(cache.get(tradeId));
     }

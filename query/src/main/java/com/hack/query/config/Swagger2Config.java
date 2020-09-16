@@ -1,59 +1,34 @@
 package com.hack.query.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import springfox.documentation.swagger2.annotations.EnableSwagger2WebFlux;
 
-@Configuration //标记配置类
-
+@Configuration
+@EnableSwagger2WebFlux
 public class Swagger2Config {
-//    private final TypeResolver resolver;
-//
-//    @Autowired
-//    public Swagger2Config(TypeResolver resolver) {
-//        this.resolver = resolver;
-//    }
-//
-//    @Autowired
-//    public SwaggerConfig(TypeResolver resolver) {
-//        this.resolver = resolver;
-//    }
-//
-//    @Bean
-//    public Docket api() {
-//        return new Docket(DocumentationType.SWAGGER_2)
-//                .produces(Collections.singleton("application/json"))
-//                .consumes(Collections.singleton("application/json"))
-//                .select()
-//                .apis(RequestHandlerSelectors.basePackage("com.hack.query"))
-//                .paths(PathSelectors.any())
-//                .build()
-//                .apiInfo(apiInfo()).alternateTypeRules(
-//                        new RecursiveAlternateTypeRule(resolver,
-//                                Arrays.asList(
-//                                        AlternateTypeRules.newRule(
-//                                                resolver.resolve(Mono.class, WildcardType.class),
-//                                                resolver.resolve(WildcardType.class)),
-//                                        AlternateTypeRules.newRule(
-//                                                resolver.resolve(ResponseEntity.class, WildcardType.class),
-//                                                resolver.resolve(WildcardType.class))
-//                                )))
-//                .alternateTypeRules(new RecursiveAlternateTypeRule(resolver,
-//                        Arrays.asList(
-//                                AlternateTypeRules.newRule(
-//                                        resolver.resolve(Flux.class, WildcardType.class),
-//                                        resolver.resolve(List.class, WildcardType.class)),
-//                                AlternateTypeRules.newRule(
-//                                        resolver.resolve(ResponseEntity.class, WildcardType.class),
-//                                        resolver.resolve(WildcardType.class))
-//                        ))
-//                );
-//    }
-//
-//    private ApiInfo apiInfo() {
-//        return new ApiInfoBuilder()
-//                .title("Example")
-//                .description("Example API")
-//                .termsOfServiceUrl("")
-//                .version("0.0.1-SNAPSHOT")
-//                .build();
-//    }
+    @Bean
+    public Docket swaggerApi() {
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(swaggerApiInfo()).select()
+                .apis(RequestHandlerSelectors.basePackage("com.hack.query"))
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+    private ApiInfo swaggerApiInfo() {
+        return new ApiInfoBuilder().title("webflux-swagger2 API doc")
+                .description("how to use this")
+                .termsOfServiceUrl("https://github.com/Gsealy")
+                .contact(new Contact("Lmax", "", "[email protected]"))
+                .version("1.0")
+                .build();
+    }
 }

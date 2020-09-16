@@ -22,7 +22,8 @@
         </dependency>
         <dependency>
             <groupId>com.hack</groupId>
-            <artifactId></artifactId>
+            <artifactId>common</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>

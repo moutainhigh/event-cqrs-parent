@@ -1,5 +1,6 @@
 package com.hack.core.config;
 
+import com.hack.core.aspectj.LmaxAspectj;
 import com.hack.core.event.DataFlowEvent;
 import com.hack.core.event.EventMultiCaster;
 import com.hack.core.lmax.DisruptorFactory;
@@ -34,5 +35,10 @@ public class HackAutoConfig {
     @Bean
     public <T>EventMultiCaster eventMultiCaster(RingBufferWrapper<DataFlowEvent> ringBufferWrapper){
         return EventMultiCaster.builder().ringBufferWrapper(ringBufferWrapper).build();
+    }
+
+    @Bean
+    public LmaxAspectj lmaxAspectj(){
+        return new LmaxAspectj();
     }
 }

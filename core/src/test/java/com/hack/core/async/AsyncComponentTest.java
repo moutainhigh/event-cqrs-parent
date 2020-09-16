@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.stream.IntStream;
+
 @Slf4j
 public class AsyncComponentTest extends AbstractTest {
     @Autowired
@@ -18,7 +20,9 @@ public class AsyncComponentTest extends AbstractTest {
 
     @Test
     public void slowTest()throws Exception{
-        asyncComponent.slowCall();
+        IntStream.range(0,3).forEach(i->{
+            asyncComponent.slowCall();
+        });
         System.out.println("end==============");
         Thread.sleep(10000);
     }

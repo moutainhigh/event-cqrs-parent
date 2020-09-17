@@ -22,6 +22,6 @@ public class TradeListener {
 
     @GetMapping("find/{tradeId}")
     public Mono<TradeCreateEvent> findById(@PathVariable long tradeId) {
-        return Mono.just(cache.get(tradeId));
+        return Mono.justOrEmpty(cache.get(tradeId));
     }
 }

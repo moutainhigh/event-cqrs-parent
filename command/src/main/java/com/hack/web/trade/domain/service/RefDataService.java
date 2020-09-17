@@ -19,7 +19,7 @@ public class RefDataService {
 
     public void callRefData(TradeEntity tradeEntity){
         TradeCreateEvent tradeCreateEvent = new TradeCreateEvent();
-        BeanUtils.copyProperties(tradeCreateEvent, tradeCreateEvent);
+        BeanUtils.copyProperties(tradeEntity, tradeCreateEvent);
         applicationEventPublisher.publishEvent(tradeCreateEvent);
         try {
             Thread.sleep(5000);

@@ -1,6 +1,6 @@
 package com.hack.core.config;
 
-import com.hack.core.aspectj.LmaxAspectj;
+import com.hack.core.aspectj.LightingAspectj;
 import com.hack.core.event.DataFlowEvent;
 import com.hack.core.event.EventMultiCaster;
 import com.hack.core.lmax.DisruptorFactory;
@@ -38,7 +38,7 @@ public class HackAutoConfig {
     }
 
     @Bean
-    public LmaxAspectj lmaxAspectj(){
-        return new LmaxAspectj();
+    public LightingAspectj lmaxAspectj(){
+        return new LightingAspectj();
     }
 }

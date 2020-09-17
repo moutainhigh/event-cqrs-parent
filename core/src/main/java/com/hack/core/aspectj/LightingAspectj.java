@@ -13,7 +13,7 @@ import org.springframework.context.ApplicationContextAware;
 
 @Aspect
 @Slf4j
-public class LmaxAspectj implements ApplicationContextAware {
+public class LightingAspectj implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
 
@@ -22,10 +22,9 @@ public class LmaxAspectj implements ApplicationContextAware {
         this.applicationContext = applicationContext;
     }
 
-    @Around("@annotation(lmaxAsync)")
-    public Object aroundLmaxAsync(ProceedingJoinPoint proceedingJoinPoint, LmaxAsync lmaxAsync) throws Throwable {
+    @Around("@annotation(lighting)")
+    public Object aroundLmaxAsync(ProceedingJoinPoint proceedingJoinPoint, Lighting lighting) throws Throwable {
 
-        RingBufferWrapper<DataFlowEvent<ProceedingJoinPoint>> ringBufferWrapper = applicationContext.getBean(RingBufferWrapper.class);
         EventMultiCaster multiCaster = applicationContext.getBean(EventMultiCaster.class);
         multiCaster.asyncMulticastFlowEvent(DataFlowEvent.<ProceedingJoinPoint>builder()
                 .data(proceedingJoinPoint)

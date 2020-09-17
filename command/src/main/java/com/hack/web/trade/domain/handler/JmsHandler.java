@@ -1,7 +1,7 @@
 package com.hack.web.trade.domain.handler;
 
 import com.hack.common.TradeCreateEvent;
-import com.hack.core.aspectj.LmaxAsync;
+import com.hack.core.aspectj.Lighting;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ public class JmsHandler {
 
     //这里模拟下发送kafka
     @EventListener
-    @LmaxAsync
+    @Lighting
     public void onEvent(TradeCreateEvent tradeCreateEvent){
         mockKafka(tradeCreateEvent);
     }

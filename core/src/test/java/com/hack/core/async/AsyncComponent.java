@@ -1,6 +1,6 @@
 package com.hack.core.async;
 
-import com.hack.core.aspectj.LmaxAsync;
+import com.hack.core.aspectj.Lighting;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class AsyncComponent {
 
-    @LmaxAsync
+    @Lighting
     public void slowCall() {
         System.out.println("slow call start");
         try {

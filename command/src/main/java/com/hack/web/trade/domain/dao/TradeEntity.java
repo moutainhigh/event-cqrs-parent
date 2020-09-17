@@ -1,5 +1,6 @@
 package com.hack.web.trade.domain.dao;
 
+import com.hack.common.TradeStatus;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -20,5 +21,7 @@ public class TradeEntity {
 
     private String trader;
     private String salePerson;
+
+    private TradeStatus status;
 
 }

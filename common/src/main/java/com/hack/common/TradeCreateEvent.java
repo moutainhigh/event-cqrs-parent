@@ -16,5 +16,7 @@ public class TradeCreateEvent {
     private String trader;
     private String salePerson;
 
+    private TradeStatus status;
+
 
 }

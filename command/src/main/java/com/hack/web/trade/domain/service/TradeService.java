@@ -1,6 +1,7 @@
 package com.hack.web.trade.domain.service;
 
 import com.hack.common.TradeCreateEvent;
+import com.hack.common.TradeStatus;
 import com.hack.core.event.DataFlowEvent;
 import com.hack.core.event.EventMultiCaster;
 import com.hack.web.trade.command.CreateTradeCommand;
@@ -32,6 +33,7 @@ public class TradeService {
     public TradeEntity create(CreateTradeCommand createTradeCommand) {
         TradeEntity tradeEntity = new TradeEntity();
         BeanUtils.copyProperties(createTradeCommand, tradeEntity);
+        tradeEntity.setStatus(TradeStatus.INPROCESSING);
         tradeRepository.save(tradeEntity);
         //异步执行
         eventMultiCaster.asyncMulticastFlowEvent(DataFlowEvent.<TradeEntity>builder()
@@ -41,6 +43,7 @@ public class TradeService {
                     // 这里发送spring 事件
                     TradeCreateEvent tradeCreateEvent = new TradeCreateEvent();
                     BeanUtils.copyProperties(event, tradeCreateEvent);
+                    tradeCreateEvent.setStatus(TradeStatus.SUCCESSFUL);
                     applicationEventPublisher.publishEvent(tradeCreateEvent);})
                 .onError((event, e) -> log.error("create trade error", e))
                 .build());

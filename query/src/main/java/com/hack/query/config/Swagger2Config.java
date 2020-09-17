@@ -13,7 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import springfox.documentation.swagger2.annotations.EnableSwagger2WebFlux;
 
 @Configuration
-@EnableSwagger2WebFlux
+@EnableSwagger2
 public class Swagger2Config {
     @Bean
     public Docket swaggerApi() {
@@ -25,8 +25,8 @@ public class Swagger2Config {
 
     private ApiInfo swaggerApiInfo() {
         return new ApiInfoBuilder().title("webflux-swagger2 API doc")
-                .description("how to use this")
-                .termsOfServiceUrl("https://github.com/Gsealy")
+                .description("how to this")
+                .termsOfServiceUrl("htt")
                 .contact(new Contact("Lmax", "", "[email protected]"))
                 .version("1.0")
                 .build();

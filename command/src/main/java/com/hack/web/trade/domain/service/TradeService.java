@@ -38,7 +38,7 @@ public class TradeService {
         //异步执行
         eventMultiCaster.asyncMulticastFlowEvent(DataFlowEvent.<TradeEntity>builder()
                 .data(tradeEntity)
-                .subscribe(event -> refDataService.callRefData())
+                .subscribe(event -> refDataService.callRefData(tradeEntity))
                 .onCompleted(event -> {
                     // 这里发送spring 事件
                     TradeCreateEvent tradeCreateEvent = new TradeCreateEvent();

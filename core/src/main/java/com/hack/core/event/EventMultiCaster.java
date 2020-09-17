@@ -20,4 +20,11 @@ public class EventMultiCaster {
             event.setSequence(seq);
         }, flowEvent);
     }
+
+    public <T> void publishSingle(DataFlowEvent<T> flowEvent) {
+        ringBufferWrapper.getDisruptor().publishEvent((event, seq, data) -> {
+            BeanUtils.copyProperties(data, event);
+            event.setSequence(seq);
+        }, flowEvent);
+    }
 }

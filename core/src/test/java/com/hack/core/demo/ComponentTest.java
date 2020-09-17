@@ -1,4 +1,4 @@
-package com.hack.core.async;
+package com.hack.core.demo;
 
 import com.hack.core.AbstractTest;
 import com.hack.core.event.DataFlowEvent;
@@ -47,7 +47,7 @@ public class ComponentTest extends AbstractTest {
                     })
                     .build());
         });
-        Thread.sleep(10000);
+//        Thread.sleep(10000);
     }
 
 

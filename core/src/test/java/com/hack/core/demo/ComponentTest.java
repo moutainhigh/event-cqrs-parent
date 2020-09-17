@@ -47,7 +47,7 @@ public class ComponentTest extends AbstractTest {
                     })
                     .build());
         });
-//        Thread.sleep(10000);
+        Thread.sleep(10000);
     }
 
 

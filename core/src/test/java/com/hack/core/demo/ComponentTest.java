@@ -28,13 +28,13 @@ public class ComponentTest extends AbstractTest {
         });
         log.info("main thread end");
         // wait for handler  to handle
-        Thread.sleep(10000);
+        Thread.sleep(1000);
     }
 
     @Test
     public void flowTest() throws Exception{
         Arrays.asList(new Pojo("1"), new Pojo("2"), new Pojo("3")).stream().forEach(pojo -> {
-            eventMultiCaster.publishSingle(DataFlowEvent.<Pojo>builder()
+            eventMultiCaster.publish(DataFlowEvent.<Pojo>builder()
                     .data(pojo)
                     .subscribe((event -> {
                         log.info("start ================:{}", event);
@@ -46,8 +46,10 @@ public class ComponentTest extends AbstractTest {
                         log.error("on error=============", e);
                     })
                     .build());
+
+
         });
-        Thread.sleep(10000);
+        Thread.sleep(1000);
     }
 
 

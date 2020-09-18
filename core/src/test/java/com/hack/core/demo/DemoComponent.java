@@ -10,12 +10,7 @@ public class DemoComponent {
 
     @Lighting
     public void lingtNingCall() {
-     log.info("lingtning call start");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        log.info("lingtning call end");
+        log.info("lingtning call start");
+
     }
 }

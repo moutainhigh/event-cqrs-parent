@@ -21,7 +21,7 @@ public class EventMultiCaster {
         }, flowEvent);
     }
 
-    public <T> void publishSingle(DataFlowEvent<T> flowEvent) {
+    public <T> void publish(DataFlowEvent<T> flowEvent) {
         ringBufferWrapper.getDisruptor().publishEvent((event, seq, data) -> {
             BeanUtils.copyProperties(data, event);
             event.setSequence(seq);
